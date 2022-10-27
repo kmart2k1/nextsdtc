@@ -12,8 +12,10 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-
-const pages = ["Events", "Train", "Youth", "Membership"];
+import Image from "next/image";
+import logo from "../../public/logo.png";
+const subPages = ["Volunteer", "Elite", "Support", "About", "News"];
+const pages = ["Events", "Train", "Youth", "Membership", "My Account"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -36,86 +38,73 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{ backgroundColor: "#ffffff", color: "#666666", boxShadow: "none" }}
+    >
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
+        <Toolbar
+          disableGutters
+          sx={{
+            mt: 1,
+            display: "flex",
+            alignItems: { xs: "center", md: "flex-start" },
+            justifyContent: { xs: "space-between", md: "normal" },
+          }}
+        >
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              display: "flex",
+              width: { xs: "50px", md: "80px" },
             }}
           >
-            San Diego Track Club
-          </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <Image src={logo} />
           </Box>
-
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              flexDirection: "column",
+              display: { xs: "none", md: "flex" },
             }}
           >
-            San Diego Track Clubs
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+            <Box sx={{ display: "flex" }}>
+              {subPages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 1,
+                    mx: 2,
+                    fontSize: "18px",
+                    fontStyle: "italic",
+                    color: "#666666",
+                    display: "block",
+                  }}
+                >
+                  {page}
+                </Button>
+              ))}
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{
+                    my: 1,
+                    mx: 2,
+                    fontSize: "24px",
+                    color: "#333333",
+                    display: "block",
+                  }}
+                >
+                  {page}
+                </Button>
+              ))}
+            </Box>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ display: { xs: "block", md: "none" }, flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
