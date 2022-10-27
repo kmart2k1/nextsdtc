@@ -15,7 +15,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import Image from "next/image";
 import logo from "../../public/logo.png";
 const subPages = ["Volunteer", "Elite", "Support", "About", "News"];
-const pages = ["Events", "Train", "Youth", "Membership", "My Account"];
+const pages = ["Events", "Train", "Youth", "Membership"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {

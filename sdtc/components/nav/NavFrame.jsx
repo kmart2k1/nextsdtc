@@ -9,7 +9,7 @@ const NavFrame = ({ children }) => {
     <div>
       <ResponsiveAppBar />
       <TemporaryDrawer open={open} handleClose={() => setOpen(false)} />
-      <Box sx={{ marginTop: "8px" }}>{children}</Box>
+      <Box sx={{ margin: "8px 24px" }}>{children}</Box>
       <Footer open={open} handleOpen={() => setOpen(true)} />
     </div>
   );

@@ -36,12 +36,27 @@ export default function Home() {
       </Head>
 
       <main>
-        <Box sx={{ width: "100%", height: "400px" }}>
-          <Carousel infinite={true} responsive={responsive}>
-            <Image src={runnersSrc} />
-            <Image src={finishSrc} />
-            <Image src={trackSrc} />
-          </Carousel>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Box
+            component="div"
+            sx={{
+              width: "calc(100vw + 48px)",
+              margin: "0 -24px",
+            }}
+          >
+            <Carousel infinite={true} responsive={responsive}>
+              <Image src={runnersSrc} />
+              <Image src={finishSrc} />
+              <Image src={trackSrc} />
+            </Carousel>
+          </Box>
+          <Box component="div">
+            SDTC is a registered 501(c)(3) whose mission is to support the
+            development of distance running, track and field, and related sports
+            in and around San Diego County. With experienced coaches, dedicated
+            mentors, low cost races and over 800 members, SDTC helps runners of
+            all levels meet their goals in a fun and supportive environment.
+          </Box>
         </Box>
       </main>
     </div>
